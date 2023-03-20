@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 void main() { //main스레드는 runApp을 실행시키고 종료된다.
   runApp(FirstApp()); //비동기로 실행된다.(이벤트 루프에 등록된다.)
-  sleep(Duration(seconds: 3));
+  //sleep(Duration(seconds: 3));
 }
 
 class FirstApp extends StatelessWidget {
@@ -24,7 +24,26 @@ class FirstApp extends StatelessWidget {
             title: Text("First App"),
             leading: Icon(Icons.menu),
           ),
-          body: Text("Hello~~~"),
+          body: Column(//부모의 크기에 맞게 자식이 맞춰진다.
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container( //부모의 최대 크기까지 늘려라
+                width: 100,
+                height: 100,
+                color:Colors.orange,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color:Colors.green,
+              ),
+              Container(
+                height: 100,
+                color:Colors.red,
+              ),
+            ],
+          ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               print("버튼 클릭됨");
