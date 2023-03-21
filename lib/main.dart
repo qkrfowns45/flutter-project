@@ -13,56 +13,24 @@ class FirstApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*return Container(
-      color: Colors.amber,
-    );*/ //HTML로 치면 div
-    return MaterialApp( //AndroidApp을 만든다. IOS는 CupertinoApp*(
+    return MaterialApp(
       home: SafeArea(
-        child: Scaffold( //기본 구조를 들고 있다.
-          appBar: AppBar(
-            backgroundColor: Colors.blue,
-            title: Text("First App"),
-            leading: Icon(Icons.menu),
-          ),
-          body: Column(//부모의 크기에 맞게 자식이 맞춰진다.
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Scaffold(
+          body: Column(
             children: [
-              Container( //부모의 최대 크기까지 늘려라
-                width: 100,
-                height: 100,
-                color:Colors.orange,
+              Expanded(
+                flex: 9,
+                child: Container(
+                  color: Colors.blue,
+                ),
               ),
-              Container(
-                width: 100,
-                height: 100,
-                color:Colors.green,
-              ),
-              Container(
-                height: 100,
-                color:Colors.red,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.red,
+                ),
               ),
             ],
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              print("버튼 클릭됨");
-            },
-            child: Text("button"),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(
-                label: "hello",
-                icon: Icon(Icons.access_alarm_rounded,)
-              ),
-              BottomNavigationBarItem(
-                  label: "hello",
-                  icon: Icon(Icons.access_alarm_rounded,)
-              )
-
-            ],
-            backgroundColor: Colors.yellow,
           ),
         ),
       ),
